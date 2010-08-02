@@ -47,7 +47,7 @@
 			$("li:has(> ul.hide) > span", $(this)).addClass('collapsed').html('+');
 			
 			// Checkbox function
-			$("input[type='checkbox']", $(this)).click(function(){
+			$("input[type='checkbox']", $(this)).click(function(ev){
 				
 				// If checking ...
 				if ($(this).is(":checked")) {
@@ -63,7 +63,7 @@
 					}
 					
 					// Check children if necessary
-					if (defaults.checkChildren) {
+					if (defaults.checkChildren || ev.shiftKey) {
 						$(this).parent("li").find("input[type='checkbox']").attr('checked', true);
 						// Show all children of checked
 						$("ul", $(this).parent("li")).removeClass('hide');
