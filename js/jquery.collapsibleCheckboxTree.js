@@ -1,7 +1,8 @@
 /**
-    Project: Collapsible Checkbox Tree jQuery Plugin
-    Version: 1.0.1
+	Project: Collapsible Checkbox Tree jQuery Plugin
+	Version: 1.0.1
 	Author: Lewis Jenkins
+	Modified: Sean Wallace
 	Website: http://www.redcarrot.co.uk/2009/11/11/collapsible-checkbox-tree-jquery-plugin/
     
     License:
