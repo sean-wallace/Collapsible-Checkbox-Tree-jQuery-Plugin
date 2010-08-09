@@ -19,6 +19,7 @@
 			checkChildren : false, // When checking a box, all children are checked
 			shiftClickCheckChildren : true, // When shift-clicking a box, all children are checked.
 			uncheckChildren : true, // When unchecking a box, all children are unchecked
+			includeButtons : true, // Include buttons to expand or collapse all above list
 			initialState : 'default' // Options - 'expand' (fully expanded), 'collapse' (fully collapsed) or default
 		};
 			
@@ -29,7 +30,9 @@
 			var $root = this;
 						   
 			// Add button
-			$(this).before('<button id="expand">Expand All</button><button id="collapse">Collapse All</button><button id="default">Default</button>');
+			if (defaults.includeButtons) {
+				$(this).before('<button id="expand">Expand All</button><button id="collapse">Collapse All</button><button id="default">Default</button>');
+			}
 
 			// Hide all except top level
 			$("ul", $(this)).addClass('hide');
