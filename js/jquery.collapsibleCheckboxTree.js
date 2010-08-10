@@ -17,7 +17,7 @@
 		var defaults = {
 			checkParents : true, // When checking a box, all parents are checked
 			checkChildren : false, // When checking a box, all children are checked
-			shiftClickCheckChildren : true, // When shift-clicking a box, all children are checked.
+			shiftClickEffectChildren : true, // When shift-clicking a box, all children are checked or unchecked.
 			uncheckChildren : true, // When unchecking a box, all children are unchecked
 			includeButtons : true, // Include buttons to expand or collapse all above list
 			initialState : 'default' // Options - 'expand' (fully expanded), 'collapse' (fully collapsed) or default
@@ -68,7 +68,7 @@
 					}
 					
 					// Check children if necessary
-					if (defaults.checkChildren || (defaults.shiftClickCheckChildren && ev.shiftKey)) {
+					if (defaults.checkChildren || (defaults.shiftClickEffectChildren && ev.shiftKey)) {
 						$(this).parent("li").find("input[type='checkbox']").attr('checked', true);
 						// Show all children of checked
 						$("ul", $(this).parent("li")).removeClass('hide');
@@ -81,7 +81,7 @@
 				} else {
 					
 					// Uncheck children if necessary
-					if (defaults.uncheckChildren) {
+					if (defaults.uncheckChildren || (defaults.shiftClickEffectChildren && ev.shiftKey)) {
 						$(this).parent("li").find("input[type='checkbox']").attr('checked', false);
 						// Hide all children
 						$("ul", $(this).parent("li")).addClass('hide');
